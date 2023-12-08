@@ -14,6 +14,47 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <style>
+            .accordion {
+              background-color: #eee;
+              color: #444;
+              cursor: pointer;
+              padding: 15px;
+              margin-top: 1em;
+              width: 100%;
+              border: none;
+              text-align: left;
+              outline: none;
+              font-size: 15px;
+              transition: 0.4s;
+              text-align: center;
+            }
+            
+            .active.accordion:hover {
+              background-color: #ccc;
+            }
+            
+            .panel {
+              padding: 0 18px;
+              background-color: white;
+              max-height: 0;
+              overflow: hidden;
+              transition: max-height 0.2s ease-out;
+            }
+            .accordion:after {
+                content: '\02795'; 
+                font-size: 13px;
+                color: #777;
+                float: right;
+                margin-left: 5px;
+                }
+
+                .active:after {
+                content: "\2796";
+            }
+
+
+            </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -58,9 +99,25 @@
                             <!-- <i class="fas fa-laptop fa-stack-1x fa-inverse"></i> -->
                             <i class="fa fa-user-circle fa-stack-1x fa-inverse" aria-hidden="true"></i>
                         </span>
-                        <h4 class="my-3"> What I believe</h4>
-                        <p class="text-muted">I'm deeply committed to cybersecurity and hold these core beliefs:
+                        <button class="accordion my-3">What I believe</button>
+                        <div class="panel">
+                            <p class="text-muted"> I'm deeply committed to cybersecurity and hold these core beliefs:
                             I believe in the fundamental right to digital security for everyone. Continuous learning, ethical hacking, and transparency are key to combating evolving threats. Education empowers, and collaboration strengthens our defenses. Privacy is non-negotiable, and striking the right balance between security and usability is crucial. We have a global responsibility to protect the digital realm, and mentoring the next generation is vital. Let's work together to secure the digital future.</p>
+                        </div>
+
+                        <!--
+                        <button class="accordion">Who am </button>
+                        <div class="panel">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+
+                        <button class="accordion">Section 3</button>
+                        <div class="panel">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div> -->
+                        <!-- <h4 class="my-3"> What I believe</h4>
+                        <p class="text-muted">I'm deeply committed to cybersecurity and hold these core beliefs:
+                            I believe in the fundamental right to digital security for everyone. Continuous learning, ethical hacking, and transparency are key to combating evolving threats. Education empowers, and collaboration strengthens our defenses. Privacy is non-negotiable, and striking the right balance between security and usability is crucial. We have a global responsibility to protect the digital realm, and mentoring the next generation is vital. Let's work together to secure the digital future.</p> -->
                     </div>
                     <div class="col-md-4" style = "margin-top: 5px;">
                         <span class="fa-stack fa-4x">
@@ -71,17 +128,37 @@
                         <h4 class="my-3"> Who am I?</h4>
                         <p class="text-muted">I am originally from New York and Colombia, and found my passion for coding while pursuing a pre-med path, in my initial college semesters, I decided to give a coding class a shot, and it stuck. Now, I have transitioned to the digital world pursing a major in computer science and Information sciences, fueled by my fascination with technology's impact on daily life. I am currently based in Ithaca and am fluent in Spanish with a love for snowboarding and weightlifting</p>
                     </div>
+
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i> 
                             <i class="fa fa-map-marker fa-stack-1x fa-inverse" aria-hidden="true"></i>
                         </span>
-                        <h4 class="my-3">Currently</h4>
-                        <p class="text-muted"> Currently a Software Developer at Adaptavist, a dynamic company, I've collaborated globally with esteemed organizations like Spotify, Atlassian, and Optum, crafting bespoke code and scripting solutions to meet clients' unique needs, focusing on empowering them to achieve software objectives with dedication to high-quality, innovative solutions in the evolving software development landscape.</p>
+                        <button class="accordion my-3">Currently</button>
+                        <div class="panel">
+                            <p class="text-muted"> Currently a Software Developer at Adaptavist, a dynamic company, I've collaborated globally with esteemed organizations like Spotify, Atlassian, and Optum, crafting bespoke code and scripting solutions to meet clients' unique needs, focusing on empowering them to achieve software objectives with dedication to high-quality, innovative solutions in the evolving software development landscape.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- script for the accordian -->
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+            
+            for (i = 0; i < acc.length; i++) {
+              acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                  panel.style.maxHeight = null;
+                } else {
+                  panel.style.maxHeight = panel.scrollHeight + "px";
+                } 
+              });
+            }
+            </script>
         <!-- Portfolio Grid-->
         <section class="page-section bg-light" id="portfolio">
             <div class="container">
@@ -326,7 +403,7 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Get In Touch</h2>
-                    <h3 class="section-subheading text-muted" style = "color: #4ED452 !important;">Weather you would like set up a meeting or simply say hi, feel free to get in touch! I look foward to hearing from you!</h3>
+                    <h3 class="section-subheading text-muted" style = "color: #4ED452 !important;">Whether you would like set up a meeting or simply say hi, feel free to get in touch! I look foward to hearing from you!</h3>
                 </div>
                     <div class="row align-items-stretch mb-5">
 
